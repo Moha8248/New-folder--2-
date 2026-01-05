@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landmark Detail</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">T</div>
+            <span id="logo-text">Trichy<span style="color: var(--primary)">Spirit</span></span>
+        </a>
+
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="index.html#landmarks" class="nav-item">Landmarks</a>
+            <a href="#" class="nav-item">History</a>
+            <a href="landmark.html" class="nav-cta">Stories</a>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 60px 20px;">
+        <div id="detail-root"></div>
+    </main>
+
+    <footer>
+        <div class="container" style="padding-top: 40px;">
+            <p style="text-align: center; color: #666; font-size: 0.8rem;">© 2026 Trichy Spirit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="landmarks.js"></script>
+    <script>
+        // Read id from query string
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        const root = document.getElementById('detail-root');
+
+        if (!id) {
+            root.innerHTML = '<p>Invalid landmark. <a href="index.html">Go back</a></p>';
+        } else {
+            const item = (window.LANDMARKS || []).find(l => String(l.id) === String(id));
+            if (!item) {
+                root.innerHTML = '<p>Landmark not found. <a href="index.html">Go back</a></p>';
+            } else {
+                root.innerHTML = `
+                        <div class="card" style="max-width:900px; margin: 0 auto;">
+                            <img src="${item.imageUrl}" alt="${item.name}" style="width:100%; height:420px; object-fit:cover; display:block;">
+                            <div style="padding:30px;">
+                                <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+                                    <div>
+                                        <h1 style="margin-bottom:6px;">${item.name}</h1>
+                                        <p style="color: var(--primary); margin-bottom:0.5rem; font-weight:600;">${item.religion} • ${item.location}</p>
+                                    </div>
+                                    <span class="badge" style="text-transform:uppercase;">${item.religion}</span>
+                                </div>
+                                <p style="margin-top:18px; color: var(--muted-foreground); font-size:0.95rem;">${item.longDescription || item.description || item.shortDescription || ''}</p>
+                                <p style="margin-top:18px; color: var(--primary);">More info: <a href="${item.locationLink || '#'}" target="_blank" rel="noopener">Open on map</a></p>
+                                <div style="margin-top:24px; display:flex; gap:12px;">
+                                    <a href="index.html" class="filter-btn" style="padding:10px 18px; border-radius:10px;">Back</a>
+                                    <a href="index.html#landmarks" class="filter-btn" style="padding:10px 18px; border-radius:10px;">All Landmarks</a>
+                                </div>
+                            </div>
+                        </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

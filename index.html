@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trichy Spirit | Unity & Devotion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">T</div>
+            <span id="logo-text">Trichy<span style="color: var(--primary)">Spirit</span></span>
+        </a>
+
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="#landmarks" class="nav-item">Landmarks</a>
+            <a href="#" class="nav-item">History</a>
+            <a href="landmark.html" class="nav-cta">Stories</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h4 style="letter-spacing: 4px; color: var(--primary); margin-bottom: 20px;">WELCOME TO TIRUCHIRAPPALLI</h4>
+            <h1 class="gradient-text">Spirit of <br>Unity & Devotion</h1>
+            <p style="font-size: 1.2rem; margin-top: 20px;">Discover the sacred landmarks where history, architecture, and spirituality converge in harmony.</p>
+        </div>
+    </header>
+
+    <section class="container" style="padding: 100px 20px; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">A Tapestry of Faiths</h2>
+        <div style="width: 80px; hieght: 4px; background: var(--primary); margin: 0 auto 30px;"></div>
+        <p style="max-width: 700px; margin: 0 auto; color: var(--muted-foreground);">Trichy is more than a city; it is a living museum of religious harmony. Here, the bells of St. Lourdes Church echo with the call to prayer from the Natharvali Dargah.</p>
+    </section>
+
+    <section class="container" id="landmarks">
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterLandmarks('All', this)">All</button>
+            <button class="filter-btn" onclick="filterLandmarks('Hindu', this)">Hindu</button>
+            <button class="filter-btn" onclick="filterLandmarks('Christian', this)">Christian</button>
+            <button class="filter-btn" onclick="filterLandmarks('Islamic', this)">Islamic</button>
+        </div>
+
+        <div class="grid" id="landmark-grid">
+            </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="grid" style="padding: 0; border-bottom: 1px solid #333; padding-bottom: 50px;">
+                <div>
+                    <h3 style="margin-bottom: 20px;">Trichy<span style="color: var(--primary)">Spirit</span></h3>
+                    <p style="color: #999;">Celebrating the divine harmony and architectural splendor of Tiruchirappalli.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px;">Explore</h4>
+                    <p style="color: #999;">Home<br>Landmarks<br>History</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px;">Unity</h4>
+                    <div style="display: flex; gap: 15px; font-size: 1.5rem;">
+                        <span>🕉️</span><span>✝️</span><span>☪️</span>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: #666; font-size: 0.8rem;">© 2026 Trichy Spirit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="landmarks.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
